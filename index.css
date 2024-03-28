@@ -1,0 +1,40 @@
+.site-container {
+    max-width: 1312px;
+}
+
+.menu-button {
+    width: 30px;
+    height: 30px;
+}
+
+.logo {
+    max-height: 80px;
+}
+
+.bg-yellow-950 {
+    background-color: rgb(66 32 6);
+}
+
+.banner {
+    background: linear-gradient(
+            360deg,
+            rgba(66, 32, 6, 0.65) 0%,
+            rgba(66, 32, 6, 0.8) 80%,
+            rgb(66 32 6) 100%
+        ),
+        url(https://mediaim.expedia.com/destination/2/bcab83f2c8873b4fd8b21f23439abdf7.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.copy {
+    max-width: 768px;
+}
+
+.primary-button:hover {
+    background-color: rgb(102, 57, 16);
+}
+
+.bg-off-white {
+    background-color: #f5f5f4;
+}
