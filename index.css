@@ -54,6 +54,12 @@ select {
     padding-right: 2rem;
   }
 
-  input[type="radio"] {
+input[type="radio"] {
     accent-color: rgba(116,66,16,255);
-  }
+}
+
+select, input {
+    border-style: inset;
+    outline-color: rgba(116,66,16,255);
+ }
+ 
