@@ -16,34 +16,107 @@ menuBtn.addEventListener("click", () => {
     closeIcon.classList.toggle("hidden");
 });
 
-document.getElementById('postDataBtn').addEventListener('click', postData);
+// document.getElementById("submit-order").addEventListener("click", postData);
 
-    function postData() {
-      const data = {
-        name: 'Test Name 1',
-        address: 'Test Address 2'
-      };
+function postOrder(args) {
+    const overlay = document.getElementById("loading-overlay");
+    const button = document.getElementById("order-button");
+    overlay.classList.add("flex");
+    button.disabled = true;
 
-      fetch('https://script.google.com/macros/s/AKfycbzbMwviKXrmxkISAWaDk4pinjghzmejUEz7GciRGgVhBiWD4o92btizkEAka5Vq5j8y/exec', {
-        method: 'POST',
-        redirect: "follow",
-        headers: {
-        "Content-Type": "text/plain;charset=utf-8",
-      },
-        body: JSON.stringify(data)
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
+    fetch(
+        "https://script.google.com/macros/s/AKfycbz5LiLBdNazIAzcdfv8YNgE_iNzZdiH2zVlllFycbYbxYL0DjTyKz5dg8nVvgfWZwhF/exec",
+        {
+            method: "POST",
+            redirect: "follow",
+            headers: {
+                "Content-Type": "text/plain;charset=utf-8",
+            },
+            body: JSON.stringify(args),
         }
-        return response.text();
-      })
-      .then(data => {
-        console.log('Success:', data);
-        alert('Data added successfully');
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('Error occurred while adding data');
-      });
-    }
+    )
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.text();
+        })
+        .then((data) => {
+            overlay.classList.remove("flex");
+            button.disabled = false;
+            console.log("Success:", data);
+            alert("Data added successfully");
+        })
+        .catch((error) => {
+            overlay.classList.remove("flex");
+            button.disabled = false;
+            console.error("Error:", error);
+            alert("Error occurred while adding data");
+        });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("order-form");
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const coffee = document.getElementById("coffee").value;
+        const name = document.getElementById("name").value.trim();
+        const address = document.getElementById("address").value.trim();
+        const phoneNumber = document.getElementById("phone").value.trim();
+        const weight = document.querySelector(
+            'input[name="bordered-radio"]:checked'
+        );
+
+        if (coffee === "Select a flavor") {
+            alert("Please select a coffee flavor.");
+            return;
+        }
+
+        if (!name) {
+            alert("Please enter your name.");
+            return;
+        }
+
+        if (!address) {
+            alert("Please enter your address.");
+            return;
+        }
+
+        if (!phoneNumber) {
+            alert("Please enter your phone number.");
+            return;
+        }
+
+        if (!weight) {
+            alert("Please select a weight.");
+            return;
+        }
+
+        args = { name, phoneNumber, address, coffee, weight: weight.value };
+
+        postOrder(args);
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const coffeeSelect = document.getElementById("coffee");
+
+    coffeeSelect.addEventListener("change", function () {
+        const allDetails = document.querySelectorAll('[id*="-details"]');
+
+        allDetails.forEach(function (detail) {
+            detail.style.display = "none";
+        });
+
+        const selectedFlavor = coffeeSelect.value.toLowerCase();
+        const selectedDetails = document.getElementById(
+            selectedFlavor + "-details"
+        );
+
+        if (selectedDetails) {
+            selectedDetails.style.display = "block";
+        }
+    });
+});
