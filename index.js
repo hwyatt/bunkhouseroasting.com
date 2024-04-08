@@ -62,65 +62,69 @@ function postOrder(args) {
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("order-form");
 
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
+  if (form) {
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
 
-    const coffee = document.getElementById("coffee").value;
-    const name = document.getElementById("name").value.trim();
-    const address = document.getElementById("address").value.trim();
-    const phoneNumber = document.getElementById("phone").value.trim();
-    const weight = document.querySelector(
-      'input[name="bordered-radio"]:checked'
-    );
+      const coffee = document.getElementById("coffee").value;
+      const name = document.getElementById("name").value.trim();
+      const address = document.getElementById("address").value.trim();
+      const phoneNumber = document.getElementById("phone").value.trim();
+      const weight = document.querySelector(
+        'input[name="bordered-radio"]:checked'
+      );
 
-    if (coffee === "Select a flavor") {
-      alert("Please select a coffee flavor.");
-      return;
-    }
+      if (coffee === "Select a flavor") {
+        alert("Please select a coffee flavor.");
+        return;
+      }
 
-    if (!name) {
-      alert("Please enter your name.");
-      return;
-    }
+      if (!name) {
+        alert("Please enter your name.");
+        return;
+      }
 
-    if (!address) {
-      alert("Please enter your address.");
-      return;
-    }
+      if (!address) {
+        alert("Please enter your address.");
+        return;
+      }
 
-    if (!phoneNumber) {
-      alert("Please enter your phone number.");
-      return;
-    }
+      if (!phoneNumber) {
+        alert("Please enter your phone number.");
+        return;
+      }
 
-    if (!weight) {
-      alert("Please select a weight.");
-      return;
-    }
+      if (!weight) {
+        alert("Please select a weight.");
+        return;
+      }
 
-    args = { name, phoneNumber, address, coffee, weight: weight.value };
+      args = { name, phoneNumber, address, coffee, weight: weight.value };
 
-    postOrder(args);
-  });
+      postOrder(args);
+    });
+  }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
   const coffeeSelect = document.getElementById("coffee");
 
-  coffeeSelect.addEventListener("change", function () {
-    const allDetails = document.querySelectorAll('[id*="-details"]');
+  if (coffeeSelect) {
+    coffeeSelect.addEventListener("change", function () {
+      const allDetails = document.querySelectorAll('[id*="-details"]');
 
-    allDetails.forEach(function (detail) {
-      detail.style.display = "none";
+      allDetails.forEach(function (detail) {
+        detail.style.display = "none";
+      });
+
+      const selectedFlavor = coffeeSelect.value.toLowerCase();
+      const selectedDetails = document.getElementById(
+        selectedFlavor + "-details"
+      );
+
+      if (selectedDetails) {
+        selectedDetails.style.display = "block";
+      }
     });
-
-    const selectedFlavor = coffeeSelect.value.toLowerCase();
-    const selectedDetails = document.getElementById(
-      selectedFlavor + "-details"
-    );
-
-    if (selectedDetails) {
-      selectedDetails.style.display = "block";
-    }
-  });
+  }
 });
