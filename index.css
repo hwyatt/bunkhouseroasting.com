@@ -16,12 +16,10 @@
 }
 
 .banner {
-    background: linear-gradient(
-            360deg,
+    background: linear-gradient(360deg,
             rgba(66, 32, 6, 0.65) 0%,
             rgba(66, 32, 6, 0.8) 80%,
-            rgb(66 32 6) 100%
-        ),
+            rgb(66 32 6) 100%),
         url(https://mediaim.expedia.com/destination/2/bcab83f2c8873b4fd8b21f23439abdf7.jpg);
     background-position: center;
     background-size: cover;
@@ -59,9 +57,14 @@ input[type="radio"] {
 }
 
 select,
-input {
+input,
+textarea {
     border-style: inset;
     outline-color: rgba(116, 66, 16, 255);
+}
+
+textarea {
+    height: 300px;
 }
 
 /* LOADING OVERLAY */

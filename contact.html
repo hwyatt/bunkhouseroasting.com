@@ -1,21 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>Contact</title>
-        <link rel="icon" type="image/x-icon" href="bunkhouse.ico" />
-        <link rel="stylesheet" href="index.css" />
-        <link
-            href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
-            rel="stylesheet" />
-    </head>
-    <body class="bg-off-white">
-        <div
-            class="site-container flex flex-col gap-8 w-full px-4 py-8 mx-auto">
-            Contact
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Contact</title>
+    <link rel="icon" type="image/x-icon" href="bunkhouse.ico" />
+    <link rel="stylesheet" href="index.css" />
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+
+<body class="bg-off-white">
+    <nav class="bg-yellow-950 text-white py-4 w-full" id="navBar">
+        <div class="flex flex-col md:flex-row items-center justify-between px-4 mx-auto site-container gap-16 md:gap-0">
+            <div class="flex w-full md:w-auto items-center justify-between">
+                <a href="index.html" class="flex-shrink-0">
+                    <img src="assets/secondary_logo.png" alt="Bunkhouse Roasting Logo" class="logo w-64 md:w-auto" />
+                </a>
+
+                <button id="menuBtn" class="menu-button block md:hidden text-xl focus:outline-none">
+                    <svg id="openIcon" xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewBox="0 0 24 24"
+                        fill="none">
+                        <path d="M4 18L20 18" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+                        <path d="M4 12L20 12" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+                        <path d="M4 6L20 6" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    <svg id="closeIcon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="30px" height="30px"
+                        viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M20.7457 3.32851C20.3552 2.93798 19.722 2.93798 19.3315 3.32851L12.0371 10.6229L4.74275 3.32851C4.35223 2.93798 3.71906 2.93798 3.32854 3.32851C2.93801 3.71903 2.93801 4.3522 3.32854 4.74272L10.6229 12.0371L3.32856 19.3314C2.93803 19.722 2.93803 20.3551 3.32856 20.7457C3.71908 21.1362 4.35225 21.1362 4.74277 20.7457L12.0371 13.4513L19.3315 20.7457C19.722 21.1362 20.3552 21.1362 20.7457 20.7457C21.1362 20.3551 21.1362 19.722 20.7457 19.3315L13.4513 12.0371L20.7457 4.74272C21.1362 4.3522 21.1362 3.71903 20.7457 3.32851Z"
+                            fill="#FFFFFF" />
+                    </svg>
+                </button>
+            </div>
+
+            <div id="navLinks"
+                class="hidden md:flex md:flex-row md:items-center md:gap-6 items-start w-full md:w-auto border-white border-t-2 md:border-t-0">
+                <a href="purpose.html" class="text-xl flex items-center justify-between md:text-lg md:uppercase font-semibold hover:text-gray-200 py-4 md:py-0 border-white border-b-2 md:border-b-0 w-full md:w-auto md:transition
+              md:duration-300
+              md:ease-in-out
+              md:transform
+              md:hover:scale-105"><span>Our
+                        Purpose</span>
+                    <svg class="block md:hidden" xmlns="http://www.w3.org/2000/svg" width="30px" height="30px"
+                        viewBox="0 0 1024 1024">
+                        <path fill="#FFFFFF"
+                            d="M340.864 149.312a30.592 30.592 0 0 0 0 42.752L652.736 512 340.864 831.872a30.592 30.592 0 0 0 0 42.752 29.12 29.12 0 0 0 41.728 0L714.24 534.336a32 32 0 0 0 0-44.672L382.592 149.376a29.12 29.12 0 0 0-41.728 0z" />
+                    </svg>
+                </a>
+                <a href="order.html" class="text-xl flex items-center justify-between md:text-lg md:uppercase font-semibold hover:text-gray-200 py-4 md:py-0 border-white border-b-2 md:border-b-0 w-full md:w-auto md:transition
+              md:duration-300
+              md:ease-in-out
+              md:transform
+              md:hover:scale-105"><span>Order</span>
+                    <svg class="block md:hidden" xmlns="http://www.w3.org/2000/svg" width="30px" height="30px"
+                        viewBox="0 0 1024 1024">
+                        <path fill="#FFFFFF"
+                            d="M340.864 149.312a30.592 30.592 0 0 0 0 42.752L652.736 512 340.864 831.872a30.592 30.592 0 0 0 0 42.752 29.12 29.12 0 0 0 41.728 0L714.24 534.336a32 32 0 0 0 0-44.672L382.592 149.376a29.12 29.12 0 0 0-41.728 0z" />
+                    </svg>
+                </a>
+                <a href="resources.html" class="text-xl flex items-center justify-between md:text-lg md:uppercase font-semibold hover:text-gray-200 py-4 md:py-0 border-white border-b-2 md:border-b-0 w-full md:w-auto md:transition
+              md:duration-300
+              md:ease-in-out
+              md:transform
+              md:hover:scale-105"><span>Resources</span>
+                    <svg class="block md:hidden" xmlns="http://www.w3.org/2000/svg" width="30px" height="30px"
+                        viewBox="0 0 1024 1024">
+                        <path fill="#FFFFFF"
+                            d="M340.864 149.312a30.592 30.592 0 0 0 0 42.752L652.736 512 340.864 831.872a30.592 30.592 0 0 0 0 42.752 29.12 29.12 0 0 0 41.728 0L714.24 534.336a32 32 0 0 0 0-44.672L382.592 149.376a29.12 29.12 0 0 0-41.728 0z" />
+                    </svg>
+                </a>
+                <a href="contact.html" class="text-xl flex items-center justify-between md:text-lg md:uppercase font-semibold hover:text-gray-200 py-4 md:py-0 border-white border-b-2 md:border-b-0 w-full md:w-auto md:transition
+              md:duration-300
+              md:ease-in-out
+              md:transform
+              md:hover:scale-105"><span>Contact</span>
+                    <svg class="block md:hidden" xmlns="http://www.w3.org/2000/svg" width="30px" height="30px"
+                        viewBox="0 0 1024 1024">
+                        <path fill="#FFFFFF"
+                            d="M340.864 149.312a30.592 30.592 0 0 0 0 42.752L652.736 512 340.864 831.872a30.592 30.592 0 0 0 0 42.752 29.12 29.12 0 0 0 41.728 0L714.24 534.336a32 32 0 0 0 0-44.672L382.592 149.376a29.12 29.12 0 0 0-41.728 0z" />
+                    </svg>
+                </a>
+            </div>
         </div>
-        <script src="index.js"></script>
-    </body>
+    </nav>
+    <div class="site-container flex flex-col gap-8 w-full px-4 py-8 mx-auto min-h-screen">
+        <div class="flex flex-col items-center gap-4">
+            <h1 class="text-gray-800 text-4xl font-semibold leading-none">
+                Contact Us
+            </h1>
+            <div class="flex flex-col gap-4 copy md:col-span-8">
+                <p class="text-center">
+                    Have a question about our coffee, our process, or a general inquiry? Fill out the form below!
+                </p>
+            </div>
+        </div>
+        <form id="order-form" class="flex flex-col items-center gap-4 w-full">
+            <div class="flex flex-col gap-4 copy text-gray-800 border-b-2 border-gray-400 pt-4 pb-8 w-full">
+                <h2 class="text-gray-800 text-xl font-semibold leading-none">Your Info</h2>
+                <div class="flex flex-col gap-2">
+                    <label class="font-semibold">Name</label>
+                    <input class="p-4 border border-gray-800 rounded" name="name" id="name" placeholder="Tom Johnson">
+                    </input>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="font-semibold">Address</label>
+                    <input class="p-4 border border-gray-800 rounded" name="address" id="address"
+                        placeholder="5716 Powderhouse Rd">
+                    </input>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="font-semibold">Phone Number</label>
+                    <input class="p-4 border border-gray-800 rounded" name="phone" id="phone"
+                        placeholder="123-456-7890">
+                    </input>
+                </div>
+            </div>
+            <div class="flex flex-col gap-4 copy text-gray-800 border-b-2 border-gray-400 pt-4 pb-8 w-full">
+                <h2 class="text-gray-800 text-xl font-semibold leading-none">Your Message</h2>
+                <div class="flex flex-col gap-2">
+                    <label class="font-semibold">Message</label>
+                    <textarea class="p-4 border border-gray-800 rounded" name="message" id="message"
+                        placeholder="Hey, Tom! Thanks so much for the coffee. Why does it taste so good?"></textarea>
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-2 copy w-full">
+                <button id="contact-button" type="submit" class="primary-button bg-yellow-900 inline-flex items-center justify-center relative text-white font-semibold py-4 px-8 rounded md:transition
+              md:duration-300
+              md:ease-in-out
+              md:transform
+              md:hover:scale-105">
+                    Submit
+                    <div class="overlay" id="loading-overlay">
+                        <div class="overlay__inner">
+                            <div class="overlay__content flex flex-col items-center gap-4">
+                                <span class="spinner"></span>
+                            </div>
+                        </div>
+                    </div>
+                </button>
+                <!-- <div class="flex flex-col gap-1 mt-2">
+                    <span class="text-xs text-gray-600 self-center">*No payment is required until your first delivery of
+                        the
+                        month.</span>
+                    <span class="text-xs text-gray-600 self-center">*Limited roasting is available. Only the first
+                        twenty
+                        pounds per week can be filled.</span>
+                </div> -->
+            </div>
+        </form>
+        <div id="contact-success" class="hidden py-48">
+            <div class="flex flex-col items-center gap-4">
+                <h3 class="text-2xl font-semibold text-yellow-900">Your message has been sent!</h3>
+                <p class="text-gray-800">Be on the lookout for a response soon.</p>
+            </div>
+        </div>
+        <div id="contact-failure" class="hidden py-48">
+            <div class="flex flex-col items-center gap-4">
+                <h3 class="text-2xl font-semibold text-yellow-900">There was a problem sending your message.</h3>
+                <div class="flex flex-col gap-4 items-center">
+                    <p class="text-gray-800">Reach out to Tom directly:</p>
+                    <div class="flex flex-col gap-2 items-center">
+                        <p class="text-gray-800">tom@bunkhouseroasting.com</p>
+                        <p class="text-gray-800">307-123-4567</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-yellow-950 py-16">
+        <div class="site-container mx-auto px-4 text-white flex items-center gap-4">
+            <div>
+                <img src="assets/primary_bunkhouse.png" class="h-auto w-32" />
+            </div>
+            <div class="
+                  flex flex-col
+                  gap-1
+                  px-4
+                  border-l-2 border-yellow-900
+                  font-light
+                ">
+                <span class="font-semibold mb-3">Contact Us</span>
+                <span>tom@bunkhouseroasting.com</span>
+                <span>307-123-4567</span>
+            </div>
+        </div>
+    </footer>
+    <script src="index.js"></script>
+</body>
+
 </html>
