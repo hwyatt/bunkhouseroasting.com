@@ -128,3 +128,85 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+function sendMessage(args) {
+  const overlay = document.getElementById("loading-overlay");
+  const button = document.getElementById("order-button");
+  overlay.classList.add("flex");
+  button.disabled = true;
+
+  const success = document.getElementById("order-success");
+  const failure = document.getElementById("order-failure");
+
+  success.style.display = "block";
+
+  // fetch(
+  //   "https://script.google.com/macros/s/AKfycbz5LiLBdNazIAzcdfv8YNgE_iNzZdiH2zVlllFycbYbxYL0DjTyKz5dg8nVvgfWZwhF/exec",
+  //   {
+  //     method: "POST",
+  //     redirect: "follow",
+  //     headers: {
+  //       "Content-Type": "text/plain;charset=utf-8",
+  //     },
+  //     body: JSON.stringify(args),
+  //   }
+  // )
+  //   .then((response) => {
+  //     if (!response.ok) {
+  //       throw new Error("Network response was not ok");
+  //     }
+  //     return response.text();
+  //   })
+  //   .then((data) => {
+  //     overlay.classList.remove("flex");
+  //     button.disabled = false;
+  //     success.style.display = "block";
+  //     success.scrollIntoView({ behavior: "smooth", block: "center" });
+  //   })
+  //   .catch((error) => {
+  //     overlay.classList.remove("flex");
+  //     button.disabled = false;
+  //     failure.style.display = "block";
+  //     failure.scrollIntoView({ behavior: "smooth", block: "center" });
+  //     console.error("Error:", error);
+  //   });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("contact-form");
+
+  if (form) {
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById("contact-name").value.trim();
+      const address = document.getElementById("contact-address").value.trim();
+      const phoneNumber = document.getElementById("contact-phone").value.trim();
+      const message = document.getElementById("contact-message").value.trim();
+
+      if (!name) {
+        alert("Please enter your name.");
+        return;
+      }
+
+      if (!address) {
+        alert("Please enter your address.");
+        return;
+      }
+
+      if (!phoneNumber) {
+        alert("Please enter your phone number.");
+        return;
+      }
+
+      if (!message) {
+        alert("Please enter your message.");
+        return;
+      }
+
+      args = { name, phoneNumber, address, message };
+
+      sendMessage(args);
+    });
+  }
+});
