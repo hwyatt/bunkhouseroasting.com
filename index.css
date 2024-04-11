@@ -47,6 +47,17 @@
     .lifestyle-img {}
 }
 
+.img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgb(66 32 6);
+    z-index: 1;
+    opacity: 0.55;
+}
+
 select {
     -webkit-appearance: none;
     -moz-appearance: none;
