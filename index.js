@@ -4,7 +4,7 @@ const menuIcon = document.getElementById("openIcon");
 const closeIcon = document.getElementById("closeIcon");
 const navLinks = document.getElementById("navLinks");
 
-const deploymentID = 'AKfycbx8DFVNRZn106bNC79uZNsPBYzu70nQS3FTsyLRMjjkUsOkPFS7PutNVIpkw2mT_cA';
+const deploymentID = 'AKfycbypp6slVc6ix-wYifZNSH3Y-_L8rz040-gmuPrWdaceZGwRb2yj0KwBCi3KYZ6pjvgfnQ';
 
 menuBtn.addEventListener("click", () => {
   navLinks.classList.toggle("hidden");
