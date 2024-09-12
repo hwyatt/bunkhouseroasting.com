@@ -4,7 +4,8 @@ const menuIcon = document.getElementById("openIcon");
 const closeIcon = document.getElementById("closeIcon");
 const navLinks = document.getElementById("navLinks");
 
-const deploymentID = 'AKfycbypp6slVc6ix-wYifZNSH3Y-_L8rz040-gmuPrWdaceZGwRb2yj0KwBCi3KYZ6pjvgfnQ';
+const deploymentID =
+  "AKfycbypp6slVc6ix-wYifZNSH3Y-_L8rz040-gmuPrWdaceZGwRb2yj0KwBCi3KYZ6pjvgfnQ";
 
 menuBtn.addEventListener("click", () => {
   navLinks.classList.toggle("hidden");
@@ -27,17 +28,14 @@ function postOrder(args) {
   const success = document.getElementById("order-success");
   const failure = document.getElementById("order-failure");
 
-  fetch(
-    `https://script.google.com/macros/s/${deploymentID}/exec`,
-    {
-      method: "POST",
-      redirect: "follow",
-      headers: {
-        "Content-Type": "text/plain;charset=utf-8",
-      },
-      body: JSON.stringify(args),
-    }
-  )
+  fetch(`https://script.google.com/macros/s/${deploymentID}/exec`, {
+    method: "POST",
+    redirect: "follow",
+    headers: {
+      "Content-Type": "text/plain;charset=utf-8",
+    },
+    body: JSON.stringify(args),
+  })
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -105,9 +103,17 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      const type = "order"
+      const type = "order";
 
-      args = { name, phoneNumber, email, address, coffee, weight: weight.value, type };
+      args = {
+        name,
+        phoneNumber,
+        email,
+        address,
+        coffee,
+        weight: weight.value,
+        type,
+      };
 
       postOrder(args);
     });
@@ -125,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
         detail.style.display = "none";
       });
 
-      const selectedFlavor = coffeeSelect.value.toLowerCase();
+      const selectedFlavor = coffeeSelect.value.replace(" ", "").toLowerCase();
       const selectedDetails = document.getElementById(
         selectedFlavor + "-details"
       );
@@ -146,17 +152,14 @@ function sendMessage(args) {
   const success = document.getElementById("contact-success");
   const failure = document.getElementById("contact-failure");
 
-  fetch(
-    `https://script.google.com/macros/s/${deploymentID}/exec`,
-    {
-      method: "POST",
-      redirect: "follow",
-      headers: {
-        "Content-Type": "text/plain;charset=utf-8",
-      },
-      body: JSON.stringify(args),
-    }
-  )
+  fetch(`https://script.google.com/macros/s/${deploymentID}/exec`, {
+    method: "POST",
+    redirect: "follow",
+    headers: {
+      "Content-Type": "text/plain;charset=utf-8",
+    },
+    body: JSON.stringify(args),
+  })
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -210,7 +213,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      const type = "contact"
+      const type = "contact";
 
       args = { name, phoneNumber, email, message, type };
 
